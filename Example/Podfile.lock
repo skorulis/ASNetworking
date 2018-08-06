@@ -1,0 +1,32 @@
+PODS:
+  - ASNetworking (0.1.0):
+    - PromiseKit
+  - PromiseKit (6.3.4):
+    - PromiseKit/CorePromise (= 6.3.4)
+    - PromiseKit/Foundation (= 6.3.4)
+    - PromiseKit/UIKit (= 6.3.4)
+  - PromiseKit/CorePromise (6.3.4)
+  - PromiseKit/Foundation (6.3.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.3.4):
+    - PromiseKit/CorePromise
+
+DEPENDENCIES:
+  - ASNetworking (from `../`)
+  - PromiseKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - PromiseKit
+
+EXTERNAL SOURCES:
+  ASNetworking:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ASNetworking: e59b112ca7d435ce42d63a7daaab4f2fa85df9d8
+  PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
+
+PODFILE CHECKSUM: 700a838f07d96912db9c7148e77ac70642d40b13
+
+COCOAPODS: 1.5.0

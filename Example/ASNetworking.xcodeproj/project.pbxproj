@@ -41,12 +41,12 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		66ACB6DD7A566D022D9814EF /* Pods_ASNetworking_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASNetworking_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8766B5DD0C9C55D2600E5329 /* ASNetworking.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = ASNetworking.podspec; path = ../ASNetworking.podspec; sourceTree = "<group>"; };
+		8766B5DD0C9C55D2600E5329 /* ASNetworking.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ASNetworking.podspec; path = ../ASNetworking.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1E1BC3E63928D83C1F23B0E /* Pods_ASNetworking_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASNetworking_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB78CB57749B9A24E38CEBB1 /* Pods-ASNetworking_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASNetworking_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASNetworking_Example/Pods-ASNetworking_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C66CD7F56932501969D60FF5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C66CD7F56932501969D60FF5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D8A19C47CC8776A876A89695 /* Pods-ASNetworking_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASNetworking_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASNetworking_Tests/Pods-ASNetworking_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		DAA619689F071300F1DBDC14 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		DAA619689F071300F1DBDC14 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = X4S6MUZL2D;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = X4S6MUZL2D;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -269,10 +271,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ASNetworking_Example/Pods-ASNetworking_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ASNetworking/ASNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ASNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -469,6 +473,7 @@
 			baseConfigurationReference = AB78CB57749B9A24E38CEBB1 /* Pods-ASNetworking_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X4S6MUZL2D;
 				INFOPLIST_FILE = ASNetworking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -484,6 +489,7 @@
 			baseConfigurationReference = 264081CDC9ABFD620283FF4B /* Pods-ASNetworking_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X4S6MUZL2D;
 				INFOPLIST_FILE = ASNetworking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -498,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D8A19C47CC8776A876A89695 /* Pods-ASNetworking_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = X4S6MUZL2D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -520,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E9B4362E47CDB550F5F9816 /* Pods-ASNetworking_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = X4S6MUZL2D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
