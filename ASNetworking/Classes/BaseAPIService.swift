@@ -13,6 +13,7 @@ public typealias URLDataPromise = Promise<URLData>
 
 open class BaseAPIService: NSObject {
 
+    public var logRequests:Bool = false
     public var logResponses:Bool = true
     
     let baseURL:String?
@@ -31,6 +32,13 @@ open class BaseAPIService: NSObject {
         } else {
             return URL(string: path)
         }
+    }
+    
+    open func urlFor(path:String,queryItems:[URLQueryItem]) -> URL? {
+        guard let url = urlForPath(path: path) else { return nil }
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        components?.queryItems = queryItems
+        return components?.url
     }
     
     public func urlForPath(path:String,query:String) -> URL? {
@@ -89,6 +97,9 @@ open class BaseAPIService: NSObject {
     public func dataPromise(req:URLRequest) -> URLDataPromise {
         var p:URLDataPromise? = matching(req: req)
         if p == nil {
+            if logRequests {
+                print("Executing request \(req)")
+            }
             p = self.session.dataTask(.promise, with: req)
             self.activeRequests[req] = p
             _ = p?.ensure {
