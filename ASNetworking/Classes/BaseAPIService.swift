@@ -27,6 +27,10 @@ open class BaseAPIService: NSObject {
     }
     
     public func urlForPath(path:String) -> URL? {
+        let isFullURL = path.starts(with: "https://") || path.starts(with: "http://")
+        if isFullURL {
+            return URL(string: path)
+        }
         if let b = baseURL {
             return URL(string:b)?.appendingPathComponent(path)
         } else {
@@ -98,7 +102,24 @@ open class BaseAPIService: NSObject {
         var p:URLDataPromise? = matching(req: req)
         if p == nil {
             if logRequests {
-                print("Executing request \(req)")
+                var text = """
+                ------Executing request-----\n
+                METHOD: \(req.httpMethod ?? "GET")
+                URL: \(req.url!)\n
+                """
+                if let data = req.httpBody {
+                    if let dataText = String(data: data, encoding: .utf8) {
+                        text += "BODY: \(dataText)\n"
+                    }
+                }
+                if (req.allHTTPHeaderFields?.keys.count ?? 0) > 0 {
+                    text += "HEADERS:\n"
+                }
+                for header in (req.allHTTPHeaderFields ?? [String:String]()) {
+                    text += "\(header.key) = \(header.value)\n" 
+                }
+                
+                print(text)
             }
             p = self.session.dataTask(.promise, with: req)
             self.activeRequests[req] = p
