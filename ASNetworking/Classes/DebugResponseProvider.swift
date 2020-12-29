@@ -13,6 +13,10 @@ public protocol DebugResponseProvider {
 
 public struct EmptyDebugResponseProvider: DebugResponseProvider {
     
+    public init() {
+        
+    }
+    
     public func getResponse(request: AppRequest) -> DebugResponse? {
         return nil
     }
@@ -20,6 +24,10 @@ public struct EmptyDebugResponseProvider: DebugResponseProvider {
 }
 
 public struct RollingDebugResponseProvider: DebugResponseProvider {
+    
+    public init() {
+        
+    }
     
     public func getResponse(request: AppRequest) -> DebugResponse? {
         guard let stubPath = request.stubPath else {

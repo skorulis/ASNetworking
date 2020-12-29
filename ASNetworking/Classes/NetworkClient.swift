@@ -7,17 +7,17 @@ public enum NetworkError: Error {
     case serverError
 }
 
-public class NetworkClient {
+open class NetworkClient {
     
     private let session: URLSession
-    var subscibers: Set<AnyCancellable> = []
-    var debugResponseProvider: DebugResponseProvider?
+    public var subscibers: Set<AnyCancellable> = []
+    public var debugResponseProvider: DebugResponseProvider?
     
-    init() {
+    public init() {
         self.session = URLSession(configuration: .default)
     }
     
-    func execute<ResultType>(appRequest: AppRequest) -> Future<ResultType, Error> where ResultType: Decodable {
+    public func execute<ResultType>(appRequest: AppRequest) -> Future<ResultType, Error> where ResultType: Decodable {
         if let debugResponse = debugResponseProvider?.getResponse(request: appRequest) {
             return Future<ResultType,Error> { (promise) in
                 do {
@@ -35,7 +35,7 @@ public class NetworkClient {
         return execute(request: appRequest.urlRequest)
     }
     
-    func execute<ResultType>(request: URLRequest) -> Future<ResultType, Error> where ResultType: Decodable {
+    public func execute<ResultType>(request: URLRequest) -> Future<ResultType, Error> where ResultType: Decodable {
         print("\(request.httpMethod ?? "GET") \(request.url!)")
         return Future<ResultType,Error> { (promise) in
             self.session.dataTaskPublisher(for: request).tryMap { (data, response) -> Data in
@@ -59,7 +59,7 @@ public class NetworkClient {
         }
     }
     
-    func get<ResultType>(url: URL) -> Future<ResultType, Error> where ResultType: Decodable {
+    public func get<ResultType>(url: URL) -> Future<ResultType, Error> where ResultType: Decodable {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         return execute(request: request)
